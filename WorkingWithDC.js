@@ -33,4 +33,24 @@ const ObjList = data2D.slice(1).map(info => {
 console.log(ObjList);
 
 // Part 4
+//Create a copy of the original array of objects
+const ObjListCOPY = JSON.parse(JSON.stringify(ObjList));
+const barry = {id: "48", name: "Barry", ocupation: "Runner", age: "25",}
+const bilbo = {id: "7", name: "Bilbo", occupation: "None", age: "111",}
 
+ObjListCOPY.pop();
+ObjListCOPY.splice(1, 0, barry);
+ObjListCOPY.push(bilbo);
+
+console.log(ObjListCOPY);
+
+let averageAge = 0;
+
+for (const obj of ObjListCOPY) {
+   const age = parseInt(obj.age);
+   averageAge += age;
+}
+
+averageAge = averageAge / ObjListCOPY.length;
+
+console.log(`The average age of the list is ${averageAge}`);
