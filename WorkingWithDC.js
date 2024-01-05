@@ -35,8 +35,8 @@ console.log(ObjList);
 // Part 4
 //Create a copy of the original array of objects
 const ObjListCOPY = JSON.parse(JSON.stringify(ObjList));
-const barry = {id: "48", name: "Barry", ocupation: "Runner", age: "25",}
-const bilbo = {id: "7", name: "Bilbo", occupation: "None", age: "111",}
+const barry = {id: "48", name: "Barry", ocupation: "Runner", age: "25",};
+const bilbo = {id: "7", name: "Bilbo", occupation: "None", age: "111",};
 
 ObjListCOPY.pop();
 ObjListCOPY.splice(1, 0, barry);
@@ -54,3 +54,19 @@ for (const obj of ObjListCOPY) {
 averageAge = averageAge / ObjListCOPY.length;
 
 console.log(`The average age of the list is ${averageAge}`);
+
+// Part 5
+
+//Store the keys back into a result variable
+let result = Object.keys(ObjListCOPY[0]);
+
+// Put each person's info in a string 
+// in the correct order
+for (const person of ObjListCOPY) {
+   const dataSection = `${person.id},${person.name},${person.occupation},${person.age}\n`;
+   
+   result += dataSection
+}
+
+
+console.log(result);
